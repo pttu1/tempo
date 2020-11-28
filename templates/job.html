@@ -1,0 +1,10 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+    <h1>{{job.title}}</h1>
+    <small>Written by {{job.creator}} on {{job.create_date}}</small>
+    <hr>
+    <div>
+        {{job.description | safe}}
+    </div>
+{% end body %}

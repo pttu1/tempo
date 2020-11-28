@@ -1,0 +1,27 @@
+{% extends 'layout.html' %}
+
+{% block body %}
+    <h1>Dashboard <small>Welcome {{session.username}}</small></h1>
+    <a class="btn btn-success" href="/add_job">Add Job</a>
+    <hr>
+    <table class="table table-striped">
+        <tr>
+            <th>ID</th>
+            <th>Title</th>
+            <th>Creator</th>
+            <th>Date</th>
+            <th></th>
+            <th></th>
+        </tr>
+        {% for job in Jobs %}
+            <tr>
+                <th>{{job.id}}</th>
+                <th>{{job.title}}</th>
+                <th>{{job.creator}}</th>
+                <th>{{job.date_created}}</th>
+                <th><a href="edit_job/{{job.id}}" class="btn btn-defualt pull-right">Edit</a></th>
+                <th><a href="#" class="btn btn-danger">Delete</a></th>
+            </tr>
+        {% endfor %}
+    </table>
+    {% endblock %}
